@@ -6,23 +6,24 @@
 	</head>
 	<body>
 		<script type= "text/javascript" src="src/tabletop.js"> 
-			var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/18WbHsoWRDeg2mNjfhtC18Cak5JmqWio1JJXzAEIGbO8/edit?usp=sharing';
-	
-  			function init() {
-    				Tabletop.init( { key: publicSpreadsheetUrl,
-				
-						
- 				callback: showInfo,
-				simpleSheet: true } )
- 			 }
+		$(document).ready(function () {
+ 			 Tabletop.init({
+   				 key: 'YOUR_DOCUMENT_KEY_GOES_HERE',
+    				callback: function(data, tabletop) {
+      				var i,
+          			dataLength = data.length;
 
-
-			function showInfo(data, tabletop) {
-    				alert('Successfully processed!')
-    				console.log(data);
-			}
-
-			window.addEventListener(‘DOMContentLoaded’, init)
+      				for (i=0; i&<dataLength; i++) {
+       					 $('#politicians').append(
+         					 $('<li>', {
+           						 text: data[i].politician + ', ' + data[i].position
+          			})
+        			);
+     			 }
+    },
+    simpleSheet: true
+  });
+});
 
 
 		</script>
