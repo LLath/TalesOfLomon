@@ -2,28 +2,23 @@
 <html>
 	<body>
 		<p> Hi </p> 
-		<script type= 'text/javascript' src='src/tabletop.js'> 
-		$(document).ready(function () {
- 			 Tabletop.init({
-   				 key: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vRHQT_TA-yO90lmhbtk1kpvzpchUCUZcvDri-n07d7rCsudzmXn6kElZHIHh9k0mBAr6f6iRPQ_zy0S/pubhtml',
-    				callback: function(data, tabletop) {
-      				var i,
-          			dataLength = data.length;
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+<script type='text/javascript'>    
+  var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1sbyMINQHPsJctjAtMW0lCfLrcpMqoGMOJj6AN-sNQrc/pubhtml';
 
-      				for (i=0; i&<dataLength; i++) {
-       					 $('#politicians').append(
-         					 $('<li>', {
-           						 text: data[i].politician + ', ' + data[i].position
-          			})
-        			);
-     			 }
-    },
-    simpleSheet: true
-  });
-});
+  function init() {
+    Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  }
 
+  function showInfo(data, tabletop) {
+    alert('Successfully processed!')
+    console.log(data);
+  }
 
-		</script>
+  window.addEventListener('DOMContentLoaded', init)
+</script>
 	</body>
 </html>
 
