@@ -8,7 +8,12 @@
 	
   			function init() {
     				Tabletop.init( { key: publicSpreadsheetUrl,
- 				callback: showInfo,
+					callback: function(data, tabletop){
+						console.log(data)
+					},
+				simpleSheet: true})
+						
+ 				//callback: showInfo,
 				//simpleSheet: true } )
  			 }
 
