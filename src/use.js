@@ -9,7 +9,7 @@
         x.setAttribute("src", 
             "https://docs.google.com/spreadsheets/d/e/2PACX-1vQgDFPpnHxQzQ44Jo9LtAea4AiACKOixhwg9Zop2auH1TgtEAp5--ugcEllU03XzHPaSiXHwsRA1Vtl/pubhtml"
             );
-        document.body.appendChild(x);
+        object.body.appendChild(x);
     }
     
 </script>
