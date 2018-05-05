@@ -4,9 +4,26 @@
 		<title> TalesOfLomon </title>
 	</head>
 	<body>
-		<img src"src/TalesOfLomon-Logo.png"
-		     alt="TalesOfLomon">
+		<img src"src/TalesOfLomon-Logo.png" alt="TalesOfLomon">
+		
+		
+		<script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+		<script type='text/javascript'>    
+  		var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1kqwdqHWEAbSDSdtm7tDFMSpGqPS5S5IBF_sBjsxOGo4/edit?usp=sharing';
 
+  		function init() {
+    		Tabletop.init( { key: publicSpreadsheetUrl,
+                     callback: showInfo,
+                     simpleSheet: true } )
+  		}
+	
+  		function showInfo(data, tabletop) {
+    			alert('Successfully processed!')
+    			console.log(data);
+ 		 }
+
+  		window.addEventListener('DOMContentLoaded', init)
+		</script>
 	</body>
 </html>
 
