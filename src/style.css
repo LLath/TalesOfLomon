@@ -5,7 +5,12 @@
         overflow: hidden;
         position:absolute;
     }
-    
+
+    .navbar-brand {
+        width: 100px;
+        heigt: 50px;
+    }
+        
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
