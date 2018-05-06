@@ -3,7 +3,6 @@
 
 <script type="text/javascript">
 
-    //onclick
     function SpreadsheetOnClick(){
         var x = document.createElement("IFRAME");
         x.setAttribute("src", 
