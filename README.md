@@ -2,7 +2,7 @@
 <html>
     <body>
         <p> Tales of Lomon Infos </p>
-        <p>Seite: </p> <a href="https://llath.github.io/TalesOfLomon/"></a> 
+        <a href="https://llath.github.io/TalesOfLomon/">Seite </a> 
     </body>
   
 </html
