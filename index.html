@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-<script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -18,12 +18,12 @@
     messagingSenderId: "972554852149"
   };
   firebase.initializeApp(config);
-    vat database = firebase.database();
+    var database = firebase.database();
 </script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="llath.github.io/TalesOfLomon/src/js/use.js"> </script>
+    <script src="src/js/use.js"> </script>
     <link rel="stylsheet" href="llath.github.io/TalesOfLomon/src/CSS/home.css">
     <link rel="icon" href="https://llath.github.io/TalesOfLomon/src/pic/ToL_Icon.png">
  
@@ -55,12 +55,38 @@
     </nav>
     
     <div class="container-fluid text-center">    
-        <div class="jumbotron">            
-        </div>
+        <input type="text" name="name" id="Name" value="Name" onclick="LoadName()">
+        <br>
+        <select name="Klassen" onchange="KlassenChange()" id="Klassen">
+            <option value="KeineKlasse" selected>Klasse</option>
+            <option value="Krieger">Krieger</option>
+            <option value="Schurke">Schurke</option>
+            <option value="Magier">Magier</option>
+            <option value="Priester">Priester</option>
+        </select>
+        <select name="Rassen" id="Rassen" onchange="RassenChange()">
+            <option value="KeineRasse" selected>Rasse</option>
+            <option value="Boorken">Boorken</option>
+            <option value="Centurs">Centurs</option>
+            <option value="Dragonier">Dragonier</option>
+        </select>
+        <p id ="Beschreibung"></p>
+        <p id ="KBoni"></p>
+        <p id ="KMali"></p>
+        <p id ="Ruestung"></p>
+        <hr>
+        <p id ="Faehigkeit"></p>
+        <p id ="Sprache"></p>
+        <p id ="RBoni"></p>
+        <p id ="RMali"></p>
+
+        <button type="button" id="Erstellen" onclick="ErstellenonClick()">
+            Erstellen
+        </button>
     </div>
 
 </body>
     <footer class="page-footer font-small black pt-4 mt-4">
-       <h3> <a href="https://github.com/LLath/TalesOfLomon" target="_blank"> GitHub </a> </h3>
+       <a href="https://github.com/LLath/TalesOfLomon" target="_blank"> GitHub </a>
     </footer>                         
 </html>
