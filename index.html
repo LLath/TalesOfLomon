@@ -41,7 +41,7 @@
         </div>
     </nav>
     
-    <div class="container-fluid text-center">    
+    <div class="container-fluid text-center">  
         <input type="text" name="name" id="Name" value="Name" onclick="LoadName()">
         <br>
         <select name="Klassen" onchange="KlassenChange()" id="Klassen">
@@ -68,7 +68,21 @@
         <p id ="RMali"></p>
         <hr>
         <p id="Testi"></p>
-
+        <div id="AttributeTable">
+            <table style="width: 25%">
+                <tr>
+                    <th>Attribute</th>
+                </tr>
+                <tr>    <td>Mu</td> </tr>
+                <tr>    <td>Vo</td> </tr>
+                <tr>    <td>Ko</td> </tr>
+                <tr>    <td>Ch</td> </tr>
+                <tr>    <td>Ge</td> </tr>
+                <tr>    <td>We</td> </tr>
+                <tr>    <td>In</td> </tr>
+                <tr>    <td>St</td> </tr>
+            </table>
+        </div>
         <button type="button" id="Erstellen" onclick="ErstellenonClick()">
             Erstellen
         </button>
