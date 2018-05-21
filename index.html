@@ -5,14 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="src/js/use.js"> </script>
-    <link rel="stylsheet" href="llath.github.io/TalesOfLomon/src/CSS/home.css">
-    <link rel="icon" href="https://llath.github.io/TalesOfLomon/src/pic/ToL_Icon.png">
+    <link rel="stylsheet" href="src/CSS/home.css">
+    <link rel="icon" href="src/pic/ToL_Icon.png">
  
 </head>
 <body>
@@ -67,20 +67,168 @@
         <p id ="RBoni"></p>
         <p id ="RMali"></p>
         <hr>
-        <p id="Testi"></p>
+        <p> CP: </p>
+        <p id="CharPunkt"></p>
         <div id="AttributeTable">
-            <table style="width: 25%">
+            <table>
                 <tr>
+                    <th colspan="2" style="padding-right: 10px">Attribute</th>
+                </tr>
+                <tr>     
+                    <td>Mu</td>
+                    <td> <select name="MuWerte" onchange="AttributeRechner()" id="MuWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                        <td><p id="Charpkt"></p></td>
+                </tr>
+                <tr>     
+                    <td>Vo</td>
+                    <td> <select name="VoWerte" onchange="AttributeRechner()" id="VoWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>Ko</td>
+                    <td> <select name="KoWerte" onchange="AttributeRechner()" id="KoWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>    
+                     <td>Ch</td>
+                     <td> <select name="ChWerte" onchange="AttributeRechner()" id="ChWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>Ge</td>
+                    <td> <select name="GeWerte" onchange="AttributeRechner()" id="GeWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>We</td>
+                    <td> <select name="WeWerte" onchange="AttributeRechner()" id="WeWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>In</td>
+                    <td> <select name="InWerte" onchange="AttributeRechner()" id="InWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>St</td>
+                    <td> <select name="StWerte" onchange="AttributeRechner()" id="StWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+            </table>
+        </div>
+        <div id="TalenteTable">
+            <table>
+                <tr>
+                    <th>Stufe</th>
+                    <th>Talent</th>
+                    <th>CP</th>
                     <th>Attribute</th>
                 </tr>
-                <tr>    <td>Mu</td> </tr>
-                <tr>    <td>Vo</td> </tr>
-                <tr>    <td>Ko</td> </tr>
-                <tr>    <td>Ch</td> </tr>
-                <tr>    <td>Ge</td> </tr>
-                <tr>    <td>We</td> </tr>
-                <tr>    <td>In</td> </tr>
-                <tr>    <td>St</td> </tr>
+                <tr>
+                    <td>
+                        <select name="Stufe1" id="Stufe1" onchange="Talente()">
+                            <option value="nichts" selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Talent1" id="Talent1" onchange="Talente()">
+                            <option value="0"></option>
+                            <option value="1">Ackerbau</option>
+                            <option value="2">Alchemie</option>
+                            <option value="4"> Alte Sprachen</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="CPTalente"></p>
+                    </td>
+                    <td>
+                        <p id="TalentAttribute"></p>
+                    </td>
+                </tr>
             </table>
         </div>
         <button type="button" id="Erstellen" onclick="ErstellenonClick()">

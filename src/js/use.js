@@ -110,3 +110,72 @@ function RassenChange(){
 
 
 }
+
+window.onload = function CharP(){
+	var start = 120;
+	var x = document.getElementById("CharPunkt");
+	if(AttributeRechner.JetztCp != 0){
+		
+		start = parseInt(start) +parseInt(JetztCp);
+		x.innerHTML = start;
+	}
+	
+
+}
+var JetztCp = 0;
+function AttributeRechner(){
+	var MuAttr = document.getElementById("MuWerte");
+	var VoAttr = document.getElementById("VoWerte");
+	var KoAttr = document.getElementById("KoWerte");
+	var ChAttr = document.getElementById("ChWerte");
+	var GeAttr = document.getElementById("GeWerte");
+	var WeAttr = document.getElementById("WeWerte");
+	var InAttr = document.getElementById("InWerte");
+	var StAttr = document.getElementById("StWerte");
+
+	var cpshow = document.getElementById("Charpkt");
+
+	var startcp = document.getElementById("CharPunkt");
+	var start = 120;
+
+ 	JetztCp = parseInt(MuAttr.value) + parseInt(VoAttr.value) + parseInt(KoAttr.value) + parseInt(ChAttr.value) + parseInt(GeAttr.value) + parseInt(WeAttr.value) + parseInt(InAttr.value) + parseInt(StAttr.value);
+
+	if(JetztCp != 0){
+		start = parseInt(start) - parseInt(JetztCp);
+		startcp.innerHTML = start;
+	}
+	else{
+		startcp.innerHTML = start;
+	}
+
+}
+
+function Talente(){
+	var StufeEins = document.getElementById("Stufe1");
+	var TalentEins = document.getElementById("Talent1");
+	var cpshow = document.getElementById("CPTalente");
+	var cp = 0;
+	var kosten = parseInt(TalentEins.value);
+
+	for(var i=0; i<=parseInt(StufeEins.value); i++)
+		cp = cp +(i * kosten);
+	cpshow.innerHTML = cp;
+
+	var show = document.getElementById("TalentAttribute");
+	var displayTE = TalentEins.options[TalentEins.selectedIndex].text;
+	switch(displayTE){
+		case "Ackerbau":
+			show.innerHTML = "Ko,Ko,St";
+			break;
+		case "Alchemie":
+			show.innerHTML = "Vo,In,In";
+			break;
+		case "Alte Sprachen":
+			show.innerHTML = "Vo,In,In";
+			break;
+		case "":
+			show.innerHTML = "";
+			break;
+	}
+	
+}
