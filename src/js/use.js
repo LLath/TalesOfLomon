@@ -1,26 +1,26 @@
-  // Initialize Firebase
-var config = {
-   	apiKey: "AIzaSyChNFyuy9rkDIojdipdkP3orAI3J_RISJA",
-    authDomain: "tolchar-472bf.firebaseapp.com",
-    databaseURL: "https://tolchar-472bf.firebaseio.com",
-    projectId: "tolchar-472bf",
-    storageBucket: "tolchar-472bf.appspot.com",
-    messagingSenderId: "972554852149"
-};
-firebase.initializeApp(config);
-var database = firebase.database().ref("Herkunft");
+//   // Initialize Firebase
+// var config = {
+//    	apiKey: "AIzaSyChNFyuy9rkDIojdipdkP3orAI3J_RISJA",
+//     authDomain: "tolchar-472bf.firebaseapp.com",
+//     databaseURL: "https://tolchar-472bf.firebaseio.com",
+//     projectId: "tolchar-472bf",
+//     storageBucket: "tolchar-472bf.appspot.com",
+//     messagingSenderId: "972554852149"
+// };
+// firebase.initializeApp(config);
+// var database = firebase.database().ref("Herkunft");
 
-function FirebaseTest(){
-	database.on("value").then(function(snapshot){
-		var key = childSnapshot.key;
-		var childData = childSnapshot.val();
+// function FirebaseTest(){
+// 	database.on("value").then(function(snapshot){
+// 		var key = childSnapshot.key;
+// 		var childData = childSnapshot.val();
 
-		var null_val = childSnapshot.val().Startgeld;
+// 		var null_val = childSnapshot.val().Startgeld;
 		
-		document.getElementById("Testi").innerHTML = null_val;
-	}
-	);
-}
+// 		document.getElementById("Testi").innerHTML = null_val;
+// 	}
+// 	);
+// }
 
 function KlassenChange(){
    	var k = document.getElementById("Klassen").value;
