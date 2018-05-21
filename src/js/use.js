@@ -1,26 +1,26 @@
   // Initialize Firebase
-var config = {
-   	apiKey: "AIzaSyChNFyuy9rkDIojdipdkP3orAI3J_RISJA",
-    authDomain: "tolchar-472bf.firebaseapp.com",
-    databaseURL: "https://tolchar-472bf.firebaseio.com",
-    projectId: "tolchar-472bf",
-    storageBucket: "tolchar-472bf.appspot.com",
-    messagingSenderId: "972554852149"
-};
-firebase.initializeApp(config);
-var database = firebase.database().ref("Herkunft");
+// var config = {
+//    	apiKey: "AIzaSyChNFyuy9rkDIojdipdkP3orAI3J_RISJA",
+//     authDomain: "tolchar-472bf.firebaseapp.com",
+//     databaseURL: "https://tolchar-472bf.firebaseio.com",
+//     projectId: "tolchar-472bf",
+//     storageBucket: "tolchar-472bf.appspot.com",
+//     messagingSenderId: "972554852149"
+// };
+// firebase.initializeApp(config);
+// var database = firebase.database().ref("Herkunft");
 
-function FirebaseTest(){
-	database.on("value").then(function(snapshot){
-		var key = childSnapshot.key;
-		var childData = childSnapshot.val();
+// function FirebaseTest(){
+// 	database.on("value").then(function(snapshot){
+// 		var key = childSnapshot.key;
+// 		var childData = childSnapshot.val();
 
-		var null_val = childSnapshot.val().Startgeld;
+// 		var null_val = childSnapshot.val().Startgeld;
 		
-		document.getElementById("Testi").innerHTML = null_val;
-	}
-	);
-}
+// 		document.getElementById("Testi").innerHTML = null_val;
+// 	}
+// 	);
+// }
 
 function KlassenChange(){
    	var k = document.getElementById("Klassen").value;
@@ -114,14 +114,10 @@ function RassenChange(){
 window.onload = function CharP(){
 	var start = 120;
 	var x = document.getElementById("CharPunkt");
-	if(AttributeRechner.JetztCp != 0){
-		
-		start = parseInt(start) +parseInt(JetztCp);
-		x.innerHTML = start;
-	}
-	
+	x.innerHTML = start;
 
 }
+
 var JetztCp = 0;
 function AttributeRechner(){
 	var MuAttr = document.getElementById("MuWerte");
@@ -140,8 +136,8 @@ function AttributeRechner(){
 
  	JetztCp = parseInt(MuAttr.value) + parseInt(VoAttr.value) + parseInt(KoAttr.value) + parseInt(ChAttr.value) + parseInt(GeAttr.value) + parseInt(WeAttr.value) + parseInt(InAttr.value) + parseInt(StAttr.value);
 
-	if(JetztCp != 0){
-		start = parseInt(start) - parseInt(JetztCp);
+	if(JetztCp != 0 && cp !=0){
+		start = parseInt(start) - parseInt(JetztCp) - parseInt(cp);
 		startcp.innerHTML = start;
 	}
 	else{
@@ -150,15 +146,18 @@ function AttributeRechner(){
 
 }
 
+var cp =0;
 function Talente(){
-	var StufeEins = document.getElementById("Stufe1");
-	var TalentEins = document.getElementById("Talent1");
+	var StufeEins = document.getElementById("Stufe");
+	var TalentEins = document.getElementById("Talent");
 	var cpshow = document.getElementById("CPTalente");
-	var cp = 0;
 	var kosten = parseInt(TalentEins.value);
+	var cphelp = 0;
+	cphelp = (parseInt(StufeEins.value)*kosten) + cphelp;
 
 	for(var i=0; i<=parseInt(StufeEins.value); i++)
-		cp = cp +(i * kosten);
+		cp = cphelp +(i * kosten);
+
 	cpshow.innerHTML = cp;
 
 	var show = document.getElementById("TalentAttribute");
