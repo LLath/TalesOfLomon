@@ -148,8 +148,8 @@ function AttributeRechner(){
 
 var cp =0;
 function Talente(){
-	var StufeEins = document.getElementById("Stufe");
-	var TalentEins = document.getElementById("Talent");
+	var StufeEins = document.getElementById("Stufe1");
+	var TalentEins = document.getElementById("Talent1");
 	var cpshow = document.getElementById("CPTalente");
 	var kosten = parseInt(TalentEins.value);
 	var cphelp = 0;
