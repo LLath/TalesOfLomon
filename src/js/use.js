@@ -115,38 +115,10 @@ window.onload = function CharP(){
 	var start = 120;
 	var x = document.getElementById("CharPunkt");
 	x.innerHTML = start;
-
 }
 
-var JetztCp = 0;
-function AttributeRechner(){
-	var MuAttr = document.getElementById("MuWerte");
-	var VoAttr = document.getElementById("VoWerte");
-	var KoAttr = document.getElementById("KoWerte");
-	var ChAttr = document.getElementById("ChWerte");
-	var GeAttr = document.getElementById("GeWerte");
-	var WeAttr = document.getElementById("WeWerte");
-	var InAttr = document.getElementById("InWerte");
-	var StAttr = document.getElementById("StWerte");
+var cpT =0;
 
-	var cpshow = document.getElementById("Charpkt");
-
-	var startcp = document.getElementById("CharPunkt");
-	var start = 120;
-
- 	JetztCp = parseInt(MuAttr.value) + parseInt(VoAttr.value) + parseInt(KoAttr.value) + parseInt(ChAttr.value) + parseInt(GeAttr.value) + parseInt(WeAttr.value) + parseInt(InAttr.value) + parseInt(StAttr.value);
-
-	if(JetztCp != 0 && cp !=0){
-		start = parseInt(start) - parseInt(JetztCp) - parseInt(cp);
-		startcp.innerHTML = start;
-	}
-	else{
-		startcp.innerHTML = start;
-	}
-
-}
-
-var cp =0;
 function Talente(){
 	var StufeEins = document.getElementById("Stufe1");
 	var TalentEins = document.getElementById("Talent1");
@@ -156,10 +128,9 @@ function Talente(){
 	cphelp = (parseInt(StufeEins.value)*kosten) + cphelp;
 
 	for(var i=0; i<=parseInt(StufeEins.value); i++)
-		cp = cphelp +(i * kosten);
+		cpT = cphelp +(i * kosten);
 
-	cpshow.innerHTML = cp;
-
+	cpshow.innerHTML = cpT;
 	var show = document.getElementById("TalentAttribute");
 	var displayTE = TalentEins.options[TalentEins.selectedIndex].text;
 	switch(displayTE){
@@ -178,3 +149,83 @@ function Talente(){
 	}
 	
 }
+
+function Zauber(Zauber, show){
+	var cphelp = 0;
+	var cpshow = document.getElementById(show);
+	var kosten = 7;
+	var cpZ =0;
+
+	cphelp = (Zauber * kosten) + cphelp;
+
+
+	for(var i=0; i<Zauber; i++)
+		cpZ = cphelp +(i * kosten);
+
+	switch(Zauber){
+		case 0: 
+			cpshow.innerHTML =0;
+			break;
+		case "halt":
+			break;
+		default:
+			cpshow.innerHTML = cpZ;
+	}
+}
+
+
+
+function AttributeRechner(display, auswahl){
+	var MuAttr = document.getElementById("MuWerte");
+	var VoAttr = document.getElementById("VoWerte");
+	var KoAttr = document.getElementById("KoWerte");
+	var ChAttr = document.getElementById("ChWerte");
+	var GeAttr = document.getElementById("GeWerte");
+	var WeAttr = document.getElementById("WeWerte");
+	var InAttr = document.getElementById("InWerte");
+	var StAttr = document.getElementById("StWerte");
+	var JetztCp = 0;
+	var cphelp = 0;
+	var start = 78;
+
+	var displayID = document.getElementById(display).id;
+	var dis = document.getElementById(display).textContent;
+	
+	try{
+		var displayVal = document.getElementById(auswahl).value;
+	}
+	catch(err){
+		var dis = document.getElementById(display).textContent;
+	}
+
+	// var z1Array = [];
+	// z1Array.push(displayID,dis);
+	// if(z1Array[0] != z1Array[0])
+	// 	parseInt(dis) + parseInt(dis); 
+	// console.log(z1Array);
+	// console.log(dis);
+
+	var startcp = document.getElementById("CharPunkt");
+
+ 	//JetztCp = parseInt(MuAttr.value) + parseInt(VoAttr.value) + parseInt(KoAttr.value) + parseInt(ChAttr.value) + parseInt(GeAttr.value) + parseInt(WeAttr.value) + parseInt(InAttr.value) + parseInt(StAttr.value);
+	//JetztCp = parseInt(dis) + parseInt(dis);
+	if(parseInt(displayVal) > 5){
+		JetztCp = cphelp + parseInt(displayVal);
+	}else{
+		JetztCp = cphelp + parseInt(dis);
+	}
+
+	if(JetztCp != 0){
+		start = parseInt(start) - parseInt(JetztCp);
+		startcp.innerHTML = start;
+	}
+	else{
+		//startcp.innerHTML = start;
+	}
+
+}
+
+
+
+
+
