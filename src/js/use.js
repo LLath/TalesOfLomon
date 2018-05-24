@@ -176,14 +176,6 @@ function Zauber(Zauber, show){
 
 
 function AttributeRechner(display, auswahl){
-	var MuAttr = document.getElementById("MuWerte");
-	var VoAttr = document.getElementById("VoWerte");
-	var KoAttr = document.getElementById("KoWerte");
-	var ChAttr = document.getElementById("ChWerte");
-	var GeAttr = document.getElementById("GeWerte");
-	var WeAttr = document.getElementById("WeWerte");
-	var InAttr = document.getElementById("InWerte");
-	var StAttr = document.getElementById("StWerte");
 	var JetztCp = 0;
 	var cphelp = 0;
 	var start = 78;
@@ -198,30 +190,17 @@ function AttributeRechner(display, auswahl){
 		var dis = document.getElementById(display).textContent;
 	}
 
-	// var z1Array = [];
-	// z1Array.push(displayID,dis);
-	// if(z1Array[0] != z1Array[0])
-	// 	parseInt(dis) + parseInt(dis); 
-	// console.log(z1Array);
-	// console.log(dis);
-
 	var startcp = document.getElementById("CharPunkt");
 
- 	//JetztCp = parseInt(MuAttr.value) + parseInt(VoAttr.value) + parseInt(KoAttr.value) + parseInt(ChAttr.value) + parseInt(GeAttr.value) + parseInt(WeAttr.value) + parseInt(InAttr.value) + parseInt(StAttr.value);
-	//JetztCp = parseInt(dis) + parseInt(dis);
 	if(parseInt(displayVal) > 5){
 		JetztCp = cphelp + parseInt(displayVal);
 	}else{
 		JetztCp = cphelp + parseInt(dis);
 	}
 
-	if(JetztCp != 0){
-		start = parseInt(start) - parseInt(JetztCp);
-		startcp.innerHTML = start;
-	}
-	else{
-		//startcp.innerHTML = start;
-	}
+	start = parseInt(start) - parseInt(JetztCp);
+	startcp.innerHTML = start;
+
 
 }
 
