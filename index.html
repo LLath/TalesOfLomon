@@ -69,6 +69,7 @@
         <hr>
         <p> CP: </p>
         <p id="CharPunkt"></p>
+        <p id="AttrPunkt"></p>
         <div id="AttributeTable">
             <table>
                 <tr>
@@ -207,7 +208,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <select name="Stufe1" id="Stufe1" onchange="Talente(); AttributeRechner('CPTalente')">
+                        <select name="Stufe1" id="Stufe1" onchange="Talente('Stufe1', 'Talent1', 'CPTalente1', 'TalentAttribute1'); AttributeRechner('CPTalente1')">
                             <option value="0" selected></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -215,7 +216,7 @@
                         </select>
                     </td>
                     <td>
-                        <select name="Talent1" id="Talent1" onchange="Talente(); AttributeRechner('CPTalente')">
+                        <select name="Talent1" id="Talent1" onchange="Talente('Stufe1', 'Talent1', 'CPTalente1', 'TalentAttribute1'); AttributeRechner('CPTalente1')">
                             <option value="0"></option>
                             <option value="1">Ackerbau</option>
                             <option value="2">Alchemie</option>
@@ -223,12 +224,59 @@
                         </select>
                     </td>
                     <td>
-                        <p id="CPTalente"></p>
+                        <p id="CPTalente1"></p>
                     </td>
                     <td>
-                        <p id="TalentAttribute"></p>
+                        <p id="TalentAttribute1"></p>
                     </td>
-
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Stufe2" id="Stufe2" onchange="Talente('Stufe2', 'Talent2', 'CPTalente2', 'TalentAttribute2'); AttributeRechner('CPTalente2')">
+                            <option value="0" selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Talent2" id="Talent2" onchange="Talente('Stufe2', 'Talent2', 'CPTalente2', 'TalentAttribute2'); AttributeRechner('CPTalente2')">
+                            <option value="0"></option>
+                            <option value="1">Ackerbau</option>
+                            <option value="2">Alchemie</option>
+                            <option value="4"> Alte Sprachen</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="CPTalente2"></p>
+                    </td>
+                    <td>
+                        <p id="TalentAttribute2"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Stufe3" id="Stufe3" onchange="Talente('Stufe3', 'Talent3', 'CPTalente3', 'TalentAttribute3'); AttributeRechner('CPTalente3')">
+                            <option value="0" selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Talent3" id="Talent3" onchange="Talente('Stufe3', 'Talent3', 'CPTalente3', 'TalentAttribute3'); AttributeRechner('CPTalente3')">
+                            <option value="0"></option>
+                            <option value="1">Ackerbau</option>
+                            <option value="2">Alchemie</option>
+                            <option value="4"> Alte Sprachen</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="CPTalente3"></p>
+                    </td>
+                    <td>
+                        <p id="TalentAttribute3"></p>
+                    </td>
                 </tr>
             </table>
         </div>
@@ -242,7 +290,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <select name="Zauber1" id="Zauber1" onchange="Zauber(this.value, 'Zauber1Cp'); AttributeRechner('Zauber1Cp')">
+                        <select name="Zauber1" id="Zauber1" onchange="Zauber('Zauber1', 'Zauber1Cp'); AttributeRechner('Zauber1Cp')">
                             <option value="halt"></option>
                             <option value="halt">Feuer</option>
                             <option value="halt">Wasser</option>
@@ -253,7 +301,7 @@
                         <!-- Spezial -->
                     </td>
                     <td>
-                        <select name="ZStufe1" id="ZStufe1" onchange="Zauber(this.value, 'Zauber1Cp'); AttributeRechner('Zauber1Cp')">
+                        <select name="ZStufe1" id="ZStufe1" onchange="Zauber('ZStufe1', 'Zauber1Cp'); AttributeRechner('Zauber1Cp')">
                             <option value ="0"></option>
                             <option value ="1">1</option>
                             <option value ="2">2</option>
@@ -265,7 +313,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <select name="Zauber2" id="Zauber2" onchange="Zauber(this.value, 'Zauber2Cp'); AttributeRechner('Zauber2Cp')">
+                        <select name="Zauber2" id="Zauber2" onchange="Zauber('Zauber2', 'Zauber2Cp'); AttributeRechner('Zauber2Cp')">
                             <option value="0"></option>
                             <option value="0">Feuer</option>
                             <option value="0">Wasser</option>
@@ -276,7 +324,7 @@
                         <!-- Spezial -->
                     </td>
                     <td>
-                        <select name="ZStufe1" id="ZStufe1" onchange="Zauber(this.value, 'Zauber2Cp'); AttributeRechner('Zauber2Cp')">
+                        <select name="ZStufe2" id="ZStufe2" onchange="Zauber('ZStufe2', 'Zauber2Cp'); AttributeRechner('Zauber2Cp')">
                             <option value ="0"></option>
                             <option value ="1">1</option>
                             <option value ="2">2</option>
@@ -288,7 +336,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <select name="Zauber3" id="Zauber3" onchange="Zauber(this.value, 'Zauber3Cp'); AttributeRechner('Zauber3Cp')">
+                        <select name="Zauber3" id="Zauber3" onchange="Zauber('Zauber3', 'Zauber3Cp'); AttributeRechner('Zauber3Cp')">
                             <option value="0"></option>
                             <option value="0">Feuer</option>
                             <option value="0">Wasser</option>
@@ -299,7 +347,7 @@
                         <!-- Spezial -->
                     </td>
                     <td>
-                        <select name="ZStufe1" id="ZStufe1" onchange="Zauber(this.value, 'Zauber3Cp'); AttributeRechner('Zauber3Cp')">
+                        <select name="ZStufe3" id="ZStufe3" onchange="Zauber('ZStufe3', 'Zauber3Cp'); AttributeRechner('Zauber3Cp')">
                             <option value ="0"></option>
                             <option value ="1">1</option>
                             <option value ="2">2</option>

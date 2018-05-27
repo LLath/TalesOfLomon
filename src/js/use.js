@@ -112,27 +112,34 @@ function RassenChange(){
 }
 
 window.onload = function CharP(){
-	var start = 120;
+	var start = 72;
+	var atthelp = 42;
 	var x = document.getElementById("CharPunkt");
+	var attrcp = document.getElementById("AttrPunkt");
 	x.innerHTML = start;
+	attrcp.innerHTML = atthelp;
 }
 
-var cpT =0;
+var cpT=0;
+var cpT1=0;
+var cpT2=0;
+var cpT3=0;
 
-function Talente(){
-	var StufeEins = document.getElementById("Stufe1");
-	var TalentEins = document.getElementById("Talent1");
-	var cpshow = document.getElementById("CPTalente");
-	var kosten = parseInt(TalentEins.value);
+function Talente(Stufe, Talent, ausgabe, Attribute){
+	var stufe = document.getElementById(Stufe);
+	var talent = document.getElementById(Talent);
+	var showcp = document.getElementById(ausgabe);
+	var kosten = parseInt(talent.value);
 	var cphelp = 0;
-	cphelp = (parseInt(StufeEins.value)*kosten) + cphelp;
 
-	for(var i=0; i<=parseInt(StufeEins.value); i++)
+	cphelp = (parseInt(stufe.value)*kosten) + cphelp;
+
+	for(var i=0; i<=parseInt(stufe.value); i++)
 		cpT = cphelp +(i * kosten);
 
-	cpshow.innerHTML = cpT;
-	var show = document.getElementById("TalentAttribute");
-	var displayTE = TalentEins.options[TalentEins.selectedIndex].text;
+	showcp.innerHTML = cpT;
+	var show = document.getElementById(Attribute);
+	var displayTE = talent.options[talent.selectedIndex].text;
 	switch(displayTE){
 		case "Ackerbau":
 			show.innerHTML = "Ko,Ko,St";
@@ -147,22 +154,36 @@ function Talente(){
 			show.innerHTML = "";
 			break;
 	}
-	
+	switch(talent.id){
+		case "Talent1":
+			cpT1= cpT;
+			break;
+		case "Talent2":
+			cpT2=cpT;
+			break;
+		case "Talent3":
+			cpT3=cpT;
+			break;
+	}
 }
 
+var el1=0;
+var el2=0;
+var el3=0;
 function Zauber(Zauber, show){
 	var cphelp = 0;
 	var cpshow = document.getElementById(show);
+	var magic = document.getElementById(Zauber);
+	var magicVal = magic.value;
 	var kosten = 7;
 	var cpZ =0;
 
-	cphelp = (Zauber * kosten) + cphelp;
+	cphelp = (magicVal * kosten) + cphelp;
 
-
-	for(var i=0; i<Zauber; i++)
+	for(var i=0; i<magicVal; i++)
 		cpZ = cphelp +(i * kosten);
 
-	switch(Zauber){
+	switch(magicVal){
 		case 0: 
 			cpshow.innerHTML =0;
 			break;
@@ -171,17 +192,37 @@ function Zauber(Zauber, show){
 		default:
 			cpshow.innerHTML = cpZ;
 	}
+	switch(magic.id){
+		case "ZStufe1":
+			el1 = cpZ;
+			break;
+		case "ZStufe2":
+			el2 = cpZ;
+			break;
+		case "ZStufe3":
+			el3 = cpZ;
+			break;
+	}
 }
 
 
 
+var savehelp = 0;
+var mu=6;
+var vo=6;
+var ko=6;
+var ch=6;
+var ge=6;
+var we=6;
+var int=6;
+var st=6;
 function AttributeRechner(display, auswahl){
-	var JetztCp = 0;
 	var cphelp = 0;
-	var start = 78;
-
+	var start = 120;
+	var ergebnishelp =0;
+	var startcp = document.getElementById("CharPunkt");
+	var attrcp = document.getElementById("AttrPunkt");
 	var displayID = document.getElementById(display).id;
-	var dis = document.getElementById(display).textContent;
 	
 	try{
 		var displayVal = document.getElementById(auswahl).value;
@@ -190,21 +231,40 @@ function AttributeRechner(display, auswahl){
 		var dis = document.getElementById(display).textContent;
 	}
 
-	var startcp = document.getElementById("CharPunkt");
-
-	if(parseInt(displayVal) > 5){
-		JetztCp = cphelp + parseInt(displayVal);
-	}else{
-		JetztCp = cphelp + parseInt(dis);
+	Attribute();
+	function Attribute(){
+		var ergebnis = 0;
+		switch(displayID){
+			case "MuWerte":
+				mu = displayVal;
+				break;
+			case "VoWerte":
+				vo = displayVal;
+				break;
+			case "KoWerte":
+				ko = displayVal;
+				break;
+			case "ChWerte":
+				ch = displayVal;
+				break;
+			case "GeWerte":
+				ge = displayVal;
+				break;
+			case "WeWerte":
+				we = displayVal;
+				break;
+			case "InWerte":
+				int = displayVal;
+				break;
+			case "StWerte":
+				st = displayVal;
+				break;
+		}
+	ergebnis =parseInt(mu)+parseInt(vo)+parseInt(ko)+parseInt(ch)+parseInt(ge)+parseInt(we)+parseInt(int)+parseInt(st);
+	ergebnishelp = ergebnis;
 	}
 
-	start = parseInt(start) - parseInt(JetztCp);
+	start = parseInt(start) - parseInt(ergebnishelp) - parseInt(cpT1) - parseInt(cpT2) - parseInt(cpT3) - parseInt(el1) - parseInt(el2) - parseInt(el3);
 	startcp.innerHTML = start;
-
-
+	attrcp.innerHTML = 90 - ergebnishelp;
 }
-
-
-
-
-
