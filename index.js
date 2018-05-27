@@ -1,4 +1,4 @@
-var static = require('node-static');
+var static = require('express');
 var file = new static.Server();
 
 require('http').createServer(function(request, response) {
