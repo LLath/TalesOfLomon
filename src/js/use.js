@@ -20,7 +20,7 @@
 // 		document.getElementById("Testi").innerHTML = null_val;
 // 	}
 // 	);
-/ }
+// }
 
 function KlassenChange(){
    	var k = document.getElementById("Klassen").value;
