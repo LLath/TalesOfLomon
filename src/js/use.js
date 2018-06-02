@@ -1,3 +1,4 @@
+let klasse = [];
 function KlassenChange(){
    	var k = document.getElementById("Klassen").value;
    	var b = document.getElementById("Beschreibung");
@@ -37,19 +38,19 @@ function KlassenChange(){
     		ruestung.innerHTML = "";
 
     }
+    klasse = k+" "+b.innerText+" "+boni.innerText+" "+mali.innerText+" "+ruestung.innerText;
 
 }
 
-function ErstellenonClick(){
-	alert("Chrakter wurde erstellt");
-}
-
+let name = "";
 function LoadName(){	
 	var x = document.getElementById("Name");
 	if(x.value == "Name")
 		x.value = "";
+	name = x.value;
 }
 
+let rasse = [];
 function RassenChange(){
 	var r = document.getElementById("Rassen").value;
 	var s = document.getElementById("Sprache");
@@ -83,7 +84,7 @@ function RassenChange(){
     		fk.innerHTML = "";
 
     }
-
+    rasse = r +" "+ s.innerText+" "+boni.innerText+" "+mali.innerText+" "+fk.innerText;
 
 }
 
@@ -227,13 +228,13 @@ function AttributeRechner(display, auswahl){
 				st = displayVal;
 				break;
 		}
-	ergebnis =parseInt(mu)+parseInt(vo)+parseInt(ko)+parseInt(ch)+parseInt(ge)+parseInt(we)+parseInt(int)+parseInt(st);
-	ergebnishelp = ergebnis;
-	}
+		ergebnis =parseInt(mu)+parseInt(vo)+parseInt(ko)+parseInt(ch)+parseInt(ge)+parseInt(we)+parseInt(int)+parseInt(st);
+		ergebnishelp = ergebnis;
+		}
 
-	start = parseInt(start) - parseInt(ergebnishelp) - parseInt(cpT1) - parseInt(cpT2) - parseInt(cpT3) - parseInt(el1) - parseInt(el2) - parseInt(el3);
-	startcp.innerHTML = start;
-	attrcp.innerHTML = 90 - ergebnishelp;
+		start = parseInt(start) - parseInt(ergebnishelp) - parseInt(cpT1) - parseInt(cpT2) - parseInt(cpT3) - parseInt(el1) - parseInt(el2) - parseInt(el3);
+		startcp.innerHTML = start;
+		attrcp.innerHTML = 90 - ergebnishelp;
 }
 
 var aufruf=2;
@@ -258,7 +259,6 @@ function Einloggen(){
 		document.getElementById("Login").style.display = "none";
 		window.name = username.value;
 		loginhidden = true;
-		console.log(usernamepublic);
 		document.getElementById("MyAccount").style.display ="block";
 	}else{
 		versuch --;
@@ -290,4 +290,8 @@ window.onload = function CharP(){
 		console.log(username);
 	}
 	
+}
+
+function ErstellenonClick(){
+	console.log(name + " " + rasse + " " +klasse);
 }
