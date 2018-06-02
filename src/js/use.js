@@ -255,14 +255,17 @@ function Einloggen(){
 	var username = document.getElementById("username");
 	var password = document.getElementById("password");
 	if(username.value == "admin" && password.value == "admin123"){
-		alert ("Erfolgreich eingeloggt");
 		document.getElementById("Login").style.display = "none";
 		window.name = username.value;
 		loginhidden = true;
 		document.getElementById("MyAccount").style.display ="block";
+		document.getElementById("MyAccount").innerHTML = window.name;
 	}else{
 		versuch --;
-		alert("Du hast noch "+ versuch +" Versuche");
+		document.getElementById("Versuche").innerHTML = " Du hast noch "+versuch + " Verusche";
+		document.getElementById("password").style.borderColor = "red";
+		document.getElementById("username").style.borderColor = "red";
+		document.getElementById("Falsch").style.display ="block";
 		if(versuch == 0){
 			username.disabled = true;
 			password.disabled = true;

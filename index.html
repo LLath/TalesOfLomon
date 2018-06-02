@@ -39,7 +39,7 @@
                         target = "_blank"> CharacterSheet </a></li>
                     <li><a href="http://game-icons.net/" target="_blank">Free use Icons</a></li>
                     <li><a href="#" onclick="LoginButton()">Login</a></li>
-                    <li><a href="src/Pages/MyAccount.html" onclick="myAccount()" style="display: none;" id="MyAccount">MyAccount</a></li>
+                    <li><a href="src/Pages/MyAccount.html" onclick="myAccount()" style="display: none;" id="MyAccount"></a></li>
                 </ul>
             </div>
         </div>
@@ -52,6 +52,8 @@
             <input type="password" name="password" id="password"/>
             <input type="button" value="Login" id="submit" onclick="Einloggen()"/>
         </form>
+        <p id="Falsch" style="display:none; float:left;">Passwort bzw. Username passen nicht überein:</p>
+        <p id="Versuche" style="float:left; margin-left: 5px;"></p>
     </div>
     <div class="container-fluid text-center">  
         <input type="text" name="name" id="Name" value="Name" onclick="LoadName()" onblur="LoadName()">
