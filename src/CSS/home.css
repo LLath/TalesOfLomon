@@ -1,4 +1,8 @@
 <style>
+    form{
+      visibility: hidden;
+    }
+
     #ifra {
         width: 100%; 
         height: 100%;

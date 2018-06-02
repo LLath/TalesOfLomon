@@ -6,6 +6,7 @@
     "start": "harp server --port $PORT"
   },
   "dependencies": {
-    "harp": "*"
+    "harp": "*",
+    "pg": "^7.4.3"
   }
 }

@@ -1,27 +1,3 @@
-// Initialize Firebase
-// var config = {
-//    	apiKey: "AIzaSyChNFyuy9rkDIojdipdkP3orAI3J_RISJA",
-//     authDomain: "tolchar-472bf.firebaseapp.com",
-//     databaseURL: "https://tolchar-472bf.firebaseio.com",
-//     projectId: "tolchar-472bf",
-//     storageBucket: "tolchar-472bf.appspot.com",
-//     messagingSenderId: "972554852149"
-// };
-// firebase.initializeApp(config);
-// var database = firebase.database().ref("Herkunft");
-
-// function FirebaseTest(){
-// 	database.on("value").then(function(snapshot){
-// 		var key = childSnapshot.key;
-// 		var childData = childSnapshot.val();
-
-// 		var null_val = childSnapshot.val().Startgeld;
-		
-// 		document.getElementById("Testi").innerHTML = null_val;
-// 	}
-// 	);
-// }
-
 function KlassenChange(){
    	var k = document.getElementById("Klassen").value;
    	var b = document.getElementById("Beschreibung");
@@ -109,15 +85,6 @@ function RassenChange(){
     }
 
 
-}
-
-window.onload = function CharP(){
-	var start = 72;
-	var atthelp = 42;
-	var x = document.getElementById("CharPunkt");
-	var attrcp = document.getElementById("AttrPunkt");
-	x.innerHTML = start;
-	attrcp.innerHTML = atthelp;
 }
 
 var cpT=0;
@@ -267,4 +234,60 @@ function AttributeRechner(display, auswahl){
 	start = parseInt(start) - parseInt(ergebnishelp) - parseInt(cpT1) - parseInt(cpT2) - parseInt(cpT3) - parseInt(el1) - parseInt(el2) - parseInt(el3);
 	startcp.innerHTML = start;
 	attrcp.innerHTML = 90 - ergebnishelp;
+}
+
+var aufruf=2;
+function LoginButton(){
+	++aufruf;
+	if(aufruf%2 && loginhidden == false)
+		document.getElementById("Login").style.display="block";
+	else
+		document.getElementById("Login").style.display="none";
+}
+
+let usernamepublic;
+usernamepublic = window.name;
+var loginhidden = false;
+var versuch = 3;
+function Einloggen(){
+
+	var username = document.getElementById("username");
+	var password = document.getElementById("password");
+	if(username.value == "admin" && password.value == "admin123"){
+		alert ("Erfolgreich eingeloggt");
+		document.getElementById("Login").style.display = "none";
+		window.name = username.value;
+		loginhidden = true;
+		console.log(usernamepublic);
+		document.getElementById("MyAccount").style.display ="block";
+	}else{
+		versuch --;
+		alert("Du hast noch "+ versuch +" Versuche");
+		if(versuch == 0){
+			username.disabled = true;
+			password.disabled = true;
+			document.getElementById("submit").disabled = true;
+		}
+	}
+}
+
+function myAccount(){
+	
+
+}
+
+window.onload = function CharP(){
+	try{
+		var start = 72;
+		var atthelp = 42;
+		var x = document.getElementById("CharPunkt");
+		var attrcp = document.getElementById("AttrPunkt");
+		x.innerHTML = start;
+		attrcp.innerHTML = atthelp;
+	}catch(err){
+		var username = usernamepublic;
+		document.getElementById("AccountName").innerHTML = username;
+		console.log(username);
+	}
+	
 }
