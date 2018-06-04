@@ -251,7 +251,6 @@ usernamepublic = window.name;
 var loginhidden = false;
 var versuch = 3;
 function Einloggen(){
-
 	var username = document.getElementById("username");
 	var password = document.getElementById("password");
 	if(username.value == "admin" && password.value == "admin123"){
@@ -262,7 +261,7 @@ function Einloggen(){
 		document.getElementById("MyAccount").innerHTML = window.name;
 	}else{
 		versuch --;
-		document.getElementById("Versuche").innerHTML = " Du hast noch "+versuch + " Verusche";
+		document.getElementById("Versuche").innerHTML = "Du hast noch "+versuch + " Verusche";
 		document.getElementById("password").style.borderColor = "red";
 		document.getElementById("username").style.borderColor = "red";
 		document.getElementById("Falsch").style.display ="block";
@@ -279,6 +278,19 @@ function myAccount(){
 
 }
 
+let valshow = false;
+function ShowChar(){
+	let show = document.getElementById("Show");
+	if(valshow == false){		
+		show.style.display = "block";
+		valshow = true;
+	}else{
+		valshow = false;
+		show.style.display = "none";
+	}
+	
+}
+
 window.onload = function CharP(){
 	try{
 		var start = 72;
@@ -291,10 +303,30 @@ window.onload = function CharP(){
 		var username = usernamepublic;
 		document.getElementById("AccountName").innerHTML = username;
 		console.log(username);
+		document.getElementById("Char1").innerHTML = localStorage.getItem("name");
 	}
 	
 }
 
 function ErstellenonClick(){
-	console.log(name + " " + rasse + " " +klasse);
+	localStorage.setItem("name", name);
+	localStorage.setItem("rasse", rasse);
+	localStorage.setItem("klasse", klasse);
+}
+
+let valstats = false;
+function ShowStats(){
+	let charR = document.getElementById("CharRasse");
+	let charK = document.getElementById("CharKlasse");
+	let char = document.getElementById("CharStats");
+	charR.innerHTML = localStorage.getItem("rasse");
+	charK.innerHTML = localStorage.getItem("klasse");
+
+	if(valstats == false){
+		char.style.display = "block";
+		valstats = true;
+	}else{
+		char.style.display = "none";
+		valstats = false;
+	}
 }

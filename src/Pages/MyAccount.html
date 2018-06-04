@@ -19,8 +19,20 @@
     <div>
         <h1 id="AccountName"></h1>
     </div>
-    <div>
-        <!-- Character --> 
+    <div id="Char">
+        <!-- Character -->
+        <a href="#" id="Char1" onclick="ShowStats()"> 
+            <a href="#" onclick="ShowChar()"> PDF </a>
+        </a>
+        <div id="CharStats" style="display: none;">
+            <p id="CharRasse"></p>
+            <p id="CharKlasse"></p>
+        </div>
+    </div>
+    <div id="Show" style="display:none;">
+        <object style="width:75%; height: 600px;" data="../CharachterSheetTalesofLomon.pdf" type="application/pdf">
+            <embed src="../CharachterSheetTalesofLomon.pdf" type="application/pdf"></embed>
+        </object>
     </div>
 </body>
 </html>
