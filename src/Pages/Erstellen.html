@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TalesOfLomon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase-database.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/use.js"> </script>
+    <link rel="stylesheet" href="../CSS/home.css">
+    <script type="text/javascript" src="../js/erstellen.js"></script>
+ 
+</head>
+<body>    
+    <div class="container-fluid text-center" id="Home">     	
+        <input type="text" name="name" id="Name" value="Name" onclick="LoadName()" onblur="LoadName()">
+        <br>
+        <select name="Klassen" onchange="KlassenChange()" id="Klassen">
+            <option value="KeineKlasse" selected>Klasse</option>
+            <option value="Krieger">Krieger</option>
+            <option value="Schurke">Schurke</option>
+            <option value="Magier">Magier</option>
+            <option value="Priester">Priester</option>
+        </select>
+        <select name="Rassen" id="Rassen" onchange="RassenChange()">
+            <option value="KeineRasse" selected>Rasse</option>
+            <option value="Boorken">Boorken</option>
+            <option value="Centurs">Centurs</option>
+            <option value="Dragonier">Dragonier</option>
+        </select>
+        <p id ="Beschreibung"></p>
+        <p id ="KBoni"></p>
+        <p id ="KMali"></p>
+        <p id ="Ruestung"></p>
+        <hr>
+        <p id ="Faehigkeit"></p>
+        <p id ="Sprache"></p>
+        <p id ="RBoni"></p>
+        <p id ="RMali"></p>
+        <hr>
+        <p> CP: </p>
+        <p id="CharPunkt"></p>
+        <p id="AttrPunkt"></p>
+        <div id="AttributeTable">
+            <table>
+                <tr>
+                    <th colspan="2" style="padding-right: 10px">Attribute</th>
+                </tr>
+                <tr>     
+                    <td>Mu</td>
+                    <td> <select name="MuWerte" onchange="AttributeRechner('MuWerte', 'MuWerte')" id="MuWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>     
+                    <td>Vo</td>
+                    <td> <select name="VoWerte" onchange="AttributeRechner('VoWerte', 'VoWerte')" id="VoWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>Ko</td>
+                    <td> <select name="KoWerte" onchange="AttributeRechner('KoWerte', 'KoWerte')" id="KoWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>    
+                     <td>Ch</td>
+                     <td> <select name="ChWerte" onchange="AttributeRechner('ChWerte', 'ChWerte')" id="ChWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>Ge</td>
+                    <td> <select name="GeWerte" onchange="AttributeRechner('GeWerte', 'GeWerte')" id="GeWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>We</td>
+                    <td> <select name="WeWerte" onchange="AttributeRechner('WeWerte', 'WeWerte')" id="WeWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>In</td>
+                    <td> <select name="InWerte" onchange="AttributeRechner('InWerte', 'InWerte')" id="InWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+                <tr>     
+                    <td>St</td>
+                    <td> <select name="StWerte" onchange="AttributeRechner('StWerte', 'StWerte')" id="StWerte">
+                            <option value="6"> 6</option>
+                            <option value="7"> 7</option>
+                            <option value="8"> 8</option>
+                            <option value="9"> 9</option>
+                            <option value="10"> 10</option>
+                            <option value="11"> 11</option>
+                            <option value="12"> 12</option>
+                            <option value="13"> 13</option>
+                            <option value="14"> 14</option>
+                            <option value="15"> 15</option>
+                        </select></td>
+                </tr>
+            </table>
+        </div>
+        <div id="TalenteTable">
+            <table>
+                <tr>
+                    <th>Stufe</th>
+                    <th>Talent</th>
+                    <th>CP</th>
+                    <th>Attribute</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Stufe1" id="Stufe1" onchange="Talente('Stufe1', 'Talent1', 'CPTalente1', 'TalentAttribute1'); AttributeRechner('CPTalente1')">
+                            <option value="0" selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Talent1" id="Talent1" onchange="Talente('Stufe1', 'Talent1', 'CPTalente1', 'TalentAttribute1'); AttributeRechner('CPTalente1')">
+                            <option value="0"></option>
+                            <option value="1">Ackerbau</option>
+                            <option value="2">Alchemie</option>
+                            <option value="4"> Alte Sprachen</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="CPTalente1"></p>
+                    </td>
+                    <td>
+                        <p id="TalentAttribute1"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Stufe2" id="Stufe2" onchange="Talente('Stufe2', 'Talent2', 'CPTalente2', 'TalentAttribute2'); AttributeRechner('CPTalente2')">
+                            <option value="0" selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Talent2" id="Talent2" onchange="Talente('Stufe2', 'Talent2', 'CPTalente2', 'TalentAttribute2'); AttributeRechner('CPTalente2')">
+                            <option value="0"></option>
+                            <option value="1">Ackerbau</option>
+                            <option value="2">Alchemie</option>
+                            <option value="4"> Alte Sprachen</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="CPTalente2"></p>
+                    </td>
+                    <td>
+                        <p id="TalentAttribute2"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Stufe3" id="Stufe3" onchange="Talente('Stufe3', 'Talent3', 'CPTalente3', 'TalentAttribute3'); AttributeRechner('CPTalente3')">
+                            <option value="0" selected></option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="Talent3" id="Talent3" onchange="Talente('Stufe3', 'Talent3', 'CPTalente3', 'TalentAttribute3'); AttributeRechner('CPTalente3')">
+                            <option value="0"></option>
+                            <option value="1">Ackerbau</option>
+                            <option value="2">Alchemie</option>
+                            <option value="4"> Alte Sprachen</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="CPTalente3"></p>
+                    </td>
+                    <td>
+                        <p id="TalentAttribute3"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="Zauber">
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>Leer(Spezial)</th>
+                    <th>Stufe</th>
+                    <th>Cp</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Zauber1" id="Zauber1" onchange="Zauber('Zauber1', 'Zauber1Cp'); AttributeRechner('Zauber1Cp')">
+                            <option value="halt"></option>
+                            <option value="halt">Feuer</option>
+                            <option value="halt">Wasser</option>
+                            <option value="halt">Luft</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- Spezial -->
+                    </td>
+                    <td>
+                        <select name="ZStufe1" id="ZStufe1" onchange="Zauber('ZStufe1', 'Zauber1Cp'); AttributeRechner('Zauber1Cp')">
+                            <option value ="0"></option>
+                            <option value ="1">1</option>
+                            <option value ="2">2</option>
+                        </select>
+                    </td> 
+                    <td>
+                        <p id="Zauber1Cp"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Zauber2" id="Zauber2" onchange="Zauber('Zauber2', 'Zauber2Cp'); AttributeRechner('Zauber2Cp')">
+                            <option value="halt"></option>
+                            <option value="halt">Feuer</option>
+                            <option value="halt">Wasser</option>
+                            <option value="halt">Luft</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- Spezial -->
+                    </td>
+                    <td>
+                        <select name="ZStufe2" id="ZStufe2" onchange="Zauber('ZStufe2', 'Zauber2Cp'); AttributeRechner('Zauber2Cp')">
+                            <option value ="0"></option>
+                            <option value ="1">1</option>
+                            <option value ="2">2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="Zauber2Cp"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="Zauber3" id="Zauber3" onchange="Zauber('Zauber3', 'Zauber3Cp'); AttributeRechner('Zauber3Cp')">
+                            <option value="halt"></option>
+                            <option value="halt">Feuer</option>
+                            <option value="halt">Wasser</option>
+                            <option value="halt">Luft</option>
+                        </select>
+                    </td>
+                    <td>
+                        <!-- Spezial -->
+                    </td>
+                    <td>
+                        <select name="ZStufe3" id="ZStufe3" onchange="Zauber('ZStufe3', 'Zauber3Cp'); AttributeRechner('Zauber3Cp')">
+                            <option value ="0"></option>
+                            <option value ="1">1</option>
+                            <option value ="2">2</option>
+                        </select>
+                    </td>
+                    <td>
+                        <p id="Zauber3Cp"></p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <button type="button" id="Erstellen" onclick="ErstellenonClick()">
+            Erstellen
+        </button>
+    </div>
+</body>
+</html>
