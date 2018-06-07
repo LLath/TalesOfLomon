@@ -135,9 +135,9 @@ function Talente(Stufe, Talent, ausgabe, Attribute){
 	}
 }
 
-var el1=0;
-var el2=0;
-var el3=0;
+let el1=0;
+let el2=0;
+let el3=0;
 function Zauber(Zauber, show){
 	var cphelp = 0;
 	var cpshow = document.getElementById(show);
@@ -228,7 +228,7 @@ function AttributeRechner(display, auswahl){
 				st = displayVal;
 				break;
 		}
-		ergebnis =parseInt(mu)+parseInt(vo)+parseInt(ko)+parseInt(ch)+parseInt(ge)+parseInt(we)+parseInt(int)+parseInt(st);
+		ergebnis = parseInt(mu)+parseInt(vo)+parseInt(ko)+parseInt(ch)+parseInt(ge)+parseInt(we)+parseInt(int)+parseInt(st);
 		ergebnishelp = ergebnis;
 		}
 
@@ -275,7 +275,6 @@ function Einloggen(){
 
 function myAccount(){
 	
-
 }
 
 let valshow = false;
