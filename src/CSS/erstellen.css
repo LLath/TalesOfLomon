@@ -1,0 +1,65 @@
+body{
+	background-color: #FAFAFA;
+}
+#AttributeTable{
+	display: inline-block;
+	text-align: left;
+}
+
+#AttributeCPDarstellung{
+	border-top: 1px #e5e5e5 solid;
+}
+
+#TalenteTable{
+	display: block;
+	clear: left;
+}
+
+#Allgemein {
+	width: auto;
+	height: 260px;
+	display: block;
+	border-bottom: 1px #e5e5e5 solid;
+}
+
+#NameDarstellung{
+	width: auto;
+}
+
+#Name{
+	border: none;
+	outline: 0;
+	background-color: #FAFAFA;
+	border-bottom: 1px solid black;
+}
+
+#Klassen{
+	border: none;
+	outline: 0;
+	background-color: #FAFAFA;
+}
+
+#Rassen{
+	border: none;
+	outline:0;
+	background-color: #FAFAFA;
+}
+
+#KlassenDarstellung{
+	float: left;
+	width: 50%;
+	height: 208px;
+	border-right: 1px #e5e5e5 solid;
+	text-align: left;
+}
+
+#RassenDarstellung{
+	float: left;
+	max-width: 50%;
+	text-align: left;
+	word-wrap: break-word;
+}
+
+#CPDarstellung{
+	display: inline-block;
+}

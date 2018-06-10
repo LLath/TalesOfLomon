@@ -1,3 +1,29 @@
+function htmlbodyHeightUpdate(){
+	var height3 = $( window ).height();
+	var height1 = $('.nav').height()+50;
+	height2 = $('.main').height();
+	if(height2 > height3){
+		$('html').height(Math.max(height1,height3,height2)+10);
+			$('body').height(Math.max(height1,height3,height2)+10);
+	}
+	else
+	{
+		$('html').height(Math.max(height1,height3,height2));
+		$('body').height(Math.max(height1,height3,height2));
+	}
+		
+}
+$(document).ready(function () {
+	htmlbodyHeightUpdate();
+	$( window ).resize(function() {
+			htmlbodyHeightUpdate();
+	});
+	$( window ).scroll(function() {
+		height2 = $('.main').height();
+		htmlbodyHeightUpdate();
+	});
+});
+
 let klasse = [];
 function KlassenChange(){
    	var k = document.getElementById("Klassen").value;
@@ -92,6 +118,10 @@ var cpT=0;
 var cpT1=0;
 var cpT2=0;
 var cpT3=0;
+let cpT4=0;
+let cpT5=0;
+let cpT6=0;
+let cpTgesamt =0;
 
 function Talente(Stufe, Talent, ausgabe, Attribute){
 	var stufe = document.getElementById(Stufe);
@@ -132,12 +162,23 @@ function Talente(Stufe, Talent, ausgabe, Attribute){
 		case "Talent3":
 			cpT3=cpT;
 			break;
+		case "Talent4":
+			cpT4=cpT;
+			break;
+		case "Talent5":
+			cpT5=cpT;
+			break;
+		case "Talent6":
+			cpT6=cpT;
+			break;
 	}
+	cpTgesamt = parseInt(cpT1)+parseInt(cpT2)+parseInt(cpT3)+parseInt(cpT4)+parseInt(cpT5)+parseInt(cpT6);
 }
 
 let el1=0;
 let el2=0;
 let el3=0;
+let elgesamt=0;
 function Zauber(Zauber, show){
 	var cphelp = 0;
 	var cpshow = document.getElementById(show);
@@ -171,6 +212,7 @@ function Zauber(Zauber, show){
 			el3 = cpZ;
 			break;
 	}
+	elgesamt = parseInt(el1)+parseInt(el2)+parseInt(el3);
 }
 
 
@@ -232,9 +274,32 @@ function AttributeRechner(display, auswahl){
 		ergebnishelp = ergebnis;
 		}
 
-		start = parseInt(start) - parseInt(ergebnishelp) - parseInt(cpT1) - parseInt(cpT2) - parseInt(cpT3) - parseInt(el1) - parseInt(el2) - parseInt(el3);
+		start = parseInt(start) - parseInt(ergebnishelp) - parseInt(cpTgesamt) - parseInt(elgesamt);
 		startcp.innerHTML = start;
 		attrcp.innerHTML = 90 - ergebnishelp;
+}
+
+function WerteBerechnen(){
+	let ini = (parseInt(ge)+parseInt(int)+parseInt(st)/6-(parseInt(ko)/8))
+	document.getElementById("IniAnzeigen").innerHTML = parseInt(ini);
+	let leben = ((2*parseInt(ko)+2*parseInt(mu))/3)
+	document.getElementById("LebenAnzeigen").innerHTML = parseInt(leben);
+	let au = ((parseInt(mu)+2*(parseInt(ko))+parseInt(st)+parseInt(ge))/3);
+	document.getElementById("AuAnzeigen").innerHTML = parseInt(au);
+	let ap = ((parseInt(int)*parseInt(we))/10);
+	document.getElementById("ApAnzeigen").innerHTML = parseInt(ap);
+	let at = ((parseInt(st)+parseInt(mu))/4);
+	document.getElementById("AtAnzeigen").innerHTML = parseInt(at);
+	let pa = ((parseInt(ge)+parseInt(mu))/4);
+	document.getElementById("PaAnzeigen").innerHTML = parseInt(pa);
+	let fk = ((parseInt(vo)+parseInt(ge))/4);
+	document.getElementById("FkAnzeigen").innerHTML = parseInt(fk);
+	let mat = (((parseInt(we)+parseInt(int))*2)/7);
+	document.getElementById("MAtAnzeigen").innerHTML = parseInt(mat);
+	let mr = ((parseInt(int)+parseInt(we))/4);
+	document.getElementById("MrAnzeigen").innerHTML = parseInt(mr);
+	let lck = ((parseInt(ch)*2+parseInt(vo)+parseInt(int))/3);
+	document.getElementById("LckAnzeigen").innerHTML = parseInt(lck);
 }
 
 var aufruf=2;
@@ -299,22 +364,6 @@ function ShowChar(){
 	}
 	
 }
-
-// window.onload = function CharP(){
-// 	try{
-// 		var start = 72;
-// 		var atthelp = 42;
-// 		var x = document.getElementById("CharPunkt");
-// 		var attrcp = document.getElementById("AttrPunkt");
-// 		x.innerHTML = start;
-// 		attrcp.innerHTML = atthelp;
-// 	}catch(err){
-// 		var username = usernamepublic;
-// 		document.getElementById("AccountName").innerHTML = username;
-// 		document.getElementById("Char1").innerHTML = localStorage.getItem("name");
-// 	}
-	
-// }
 
 function ErstellenonClick(){
 	localStorage.setItem("name", name);
