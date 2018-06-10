@@ -7,8 +7,38 @@
         position:absolute;
     }
 
-  
-        
+    #Login{
+
+    }
+
+    #UnVergessen{
+      position: absolute;
+      top: 51px;
+      left: 300px;
+    }
+
+    #PwVergessen{
+      position: absolute;
+      top: 99px;
+      left: 300px;
+    }
+
+    #RegistrierenModal{
+      position: absolute;
+      top: 126px;
+      left: 175px;
+    }
+
+    #LoginForm{
+      width: 80%;
+      margin: 0 auto;
+    }
+    #username{
+      display: block;
+    }
+    #password{
+      display: block;
+    }
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
