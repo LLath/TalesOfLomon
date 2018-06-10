@@ -1,5 +1,6 @@
 body{
 	background-color: #FAFAFA;
+	width: calc(100%-200px);
 }
 #AttributeTable{
 	display: inline-block;
@@ -16,14 +17,13 @@ body{
 }
 
 #Allgemein {
-	width: auto;
 	height: 260px;
 	display: block;
 	border-bottom: 1px #e5e5e5 solid;
 }
 
 #NameDarstellung{
-	width: auto;
+	/*width: auto-200px;*/
 }
 
 #Name{
