@@ -12,6 +12,27 @@
     <link rel="icon" href="src/pic/ToL_Icon.png">
 </head>
 <body>
+
+	<div id="ModalLogin" class="modal">
+    	<!-- Content -->
+    	<div class="modal-content">
+    		<span class="close" onclick="SpanClose()">&times;</span>
+    		
+    		<div id="Login" style="display: none;">
+		        <form id="LoginForm" action="MyAccount.html"method="get" name="LoginForm">
+		            <label>Username: </label>
+		            <input type="text" name="username" id="username"/>
+		            <label>Password: </label>
+		            <input type="password" name="password" id="password"/>
+		            <input type="button" value="Login" id="submit" onclick="Einloggen()"/>
+		        </form>
+		        <p id="Falsch" style="display:none; float:left;">Passwort bzw. Username passen nicht überein:</p>
+		        <p id="Versuche" style="float:left; margin-left: 5px;"></p>
+		    </div>
+		    
+    	</div>
+    </div>
+
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -49,28 +70,21 @@
     		<!-- Navbar links bzw. Content -->
     		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
     			<ul class="nav navbar-nav">
-    				<li id="LoginName"><a href="#" onclick="LoginButton()">Login<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+    				<li id="LoginName"><a href="#" onclick="LoginButton(); Modal()">Login<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a></li>
+
     				<li><a href="src/Pages/Erstellen.html" onclick="ErstellenAnzeigen()" style="display: none;" id="Erstellen" target="iframe_Erstellen">Charakter Erstellen<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span></a></li>
     			</ul>
     		</div>	
     	</div>
     </nav>
-    <div id="Login" style="display: none;">
-        <form id="LoginForm" action="MyAccount.html"method="get" name="LoginForm">
-            <label>Username: </label>
-            <input type="text" name="username" id="username"/>
-            <label>Password: </label>
-            <input type="password" name="password" id="password"/>
-            <input type="button" value="Login" id="submit" onclick="Einloggen()"/>
-        </form>
-        <p id="Falsch" style="display:none; float:left;">Passwort bzw. Username passen nicht überein:</p>
-        <p id="Versuche" style="float:left; margin-left: 5px;"></p>
-    </div>
 
     <iframe frameborder="0" id="iframe_Login" name="iframe_Login" height="760" class="main"></iframe>
     <iframe frameborder="0" id="iframe_Erstellen" name="iframe_Erstellen" height="760" class="main"></iframe>
 
-    <!-- <iframe src="src/Pages/Erstellen.html" class="main" frameborder="0" height="760"></iframe> -->
+    <iframe src="src/Pages/Erstellen.html" class="main" frameborder="0" height="760"></iframe>
+
+    
+
 </body>
 
 <!-- <footer class="page-footer font-small black pt-4 mt-4">

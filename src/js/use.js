@@ -326,6 +326,7 @@ function Einloggen(){
 		document.getElementById("MyAccount").innerHTML = window.name;
 		document.getElementById("LoginName").style.display = "none";
 		document.getElementById("Erstellen").style.display = "block";
+		document.getElementById("ModalLogin").style.display = "none";
 	}else{
 		versuch --;
 		document.getElementById("Versuche").innerHTML = "Du hast noch "+versuch + " Verusche";
@@ -385,5 +386,22 @@ function ShowStats(){
 	}else{
 		char.style.display = "none";
 		valstats = false;
+	}
+}
+
+function Modal(){
+	const modal = document.getElementById("ModalLogin");
+	modal.style.display = "block";
+}
+
+function SpanClose(){
+	const modal = document.getElementById("ModalLogin");
+	modal.style.display = "none";
+}
+
+window.onclick = function(event){
+	const modal = document.getElementById("ModalLogin");
+	if(event.target == modal){
+		modal.style.display = "none";
 	}
 }
