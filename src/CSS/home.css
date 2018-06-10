@@ -25,7 +25,6 @@
 
     body,html{
     height: 100%;
-    width: calc(100%-200px);
   }
 
   span{
@@ -62,13 +61,13 @@
     .main{
       position: absolute;
       width: calc(100% - 40px); /*keeps 100% minus nav size*/
-      margin-left: 5px;
+      margin-left: 40px;
       float: right;
     }
 
     /*lets nav bar to be showed on mouseover*/
     nav.sidebar:hover + .main{
-      /*margin-left: 200px;*/
+      margin-left: 200px;
     }
 
     /*Center Brand*/
@@ -151,7 +150,7 @@
     /*Allow main to be next to Nav*/
     .main{
       width: calc(100% - 200px); /*keeps 100% minus nav size*/
-      /*margin-left: 200px;*/
+      margin-left: 200px;
     }
 
     /*Show all nav*/

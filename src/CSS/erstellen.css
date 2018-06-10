@@ -1,6 +1,5 @@
 body{
 	background-color: #FAFAFA;
-	width: calc(100%-200px);
 }
 #AttributeTable{
 	display: inline-block;
