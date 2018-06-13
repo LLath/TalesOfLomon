@@ -177,6 +177,24 @@
 
   @media (min-width: 1330px) {
 
+    #UnVergessen{
+      position: absolute;
+      top: 51px;
+      left: 350px;
+    }
+
+    #PwVergessen{
+      position: absolute;
+      top: 99px;
+      left: 350px;
+    }
+
+    #RegistrierenModal{
+      position: absolute;
+      top: 126px;
+      left: 235px;
+    }
+
     /*Allow main to be next to Nav*/
     .main{
       width: calc(100% - 200px); /*keeps 100% minus nav size*/
