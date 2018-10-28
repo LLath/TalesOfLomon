@@ -7,8 +7,17 @@
         position:absolute;
     }
 
-    #Login{
+    a{
+      text-decoration: none;
+    }
 
+    #submit{
+      border: none;
+      background-color: #fff;
+    }
+
+    #submit:hover{
+      background-color: #ccc;
     }
 
     #UnVergessen{
@@ -33,11 +42,22 @@
       width: 80%;
       margin: 0 auto;
     }
+
     #username{
       display: block;
     }
+
+    #username:hover{
+      box-shadow: 2px 2px 3px #ccc;
+    }
+
     #password{
       display: block;
+      margin-bottom: 5px;
+    }
+
+    #password:hover{
+      box-shadow: 2px 2px 3px #ccc;
     }
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -47,11 +67,11 @@
     }
     
     /* Set black background color, white text and some padding */
-    footer {
+   /* footer {
       background-color: #555;
       color: white;
       padding: 15px;
-    }
+    }*/
 
     body,html{
     height: 100%;

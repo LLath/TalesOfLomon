@@ -327,6 +327,7 @@ function Einloggen(){
 		document.getElementById("LoginName").style.display = "none";
 		document.getElementById("Erstellen").style.display = "block";
 		document.getElementById("ModalLogin").style.display = "none";
+		document.getElementById("Logout").style.display = "block";
 	}else{
 		versuch --;
 		document.getElementById("Versuche").innerHTML = "Du hast noch "+versuch + " Verusche";
@@ -349,8 +350,14 @@ function myAccount(){
 
 function ErstellenAnzeigen(){
 	document.getElementById("iframe_Login").style.display = "none";
-	//document.getElementById("Home").style.display = "none";
+	document.getElementById("Home").style.display = "none";
 	document.getElementById("iframe_Erstellen").style.display = "block";	
+}
+
+function Logout(){
+	const logout = document.getElementById("Logout");
+	localStorage.clear();
+	location.reload();
 }
 
 let valshow = false;
@@ -404,4 +411,31 @@ window.onclick = function(event){
 	if(event.target == modal){
 		modal.style.display = "none";
 	}
+}
+
+window.onload = function(){
+	//document.getElementById("Logout").style.display = "none";
+}
+
+let click = 0;
+let clickvergleich = 1;
+
+let TalenteMenu = {
+    erstellen: function(){
+        
+        click++;
+        clickvergleich++;
+        let getTalente = document.querySelector(".Talente"+click);
+        getTalente.innerHTML = '<table>             <tr>                    <th>Stufe</th>                    <th>Talent</th>                    <th>CP</th>                    <th>Attribute</th>                </tr>                <tr>                    <td>                        <select name="Stufe'+click+'" id="Stufe'+click+'" onchange="Talente(\'Stufe'+click+'\', \'Talent'+click+'\', \'CPTalente'+click+'\', \'TalentAttribute'+click+'\'); AttributeRechner(\'CPTalente'+click+'\')">                            <option value="0" selected></option>                            <option value="1">1</option>                            <option value="2">2</option>                            <option value="3">3</option>                        </select>                    </td><td><select name="Talent'+click+'" id="Talent'+click+'"><option value="0"></option>                            <option value="1">Ackerbau</option>                            <option value="2">Alchemie</option>                            <option value="4"> Alte Sprachen</option>                        </select>                    </td>                    <td>                        <span id="CPTalente'+click+'" style="border-right: 1px #e5e5e5 solid;">-</span>                    </td>                    <td>                        <span id="TalentAttribute'+click+'">-</span>                    </td>                </tr>                </table>' + '<span class="Talente'+clickvergleich+'"></span>'; 
+    },
+    loeschen: function(){
+        let getTalente = document.querySelector(".Talente"+click);
+        getTalente.innerHTML = '<span class="Talente'+clickvergleich+'"></span>';
+
+        click--;
+        clickvergleich--;
+    },
+    einstellen: function(){
+
+    }
 }
