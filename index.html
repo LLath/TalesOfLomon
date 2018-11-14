@@ -4,11 +4,15 @@
     <title>TalesOfLomon</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="src/js/use.js"> </script>
-    
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+  	<script src="https://stevenbenner.github.io/jquery-powertip/scripts/jquery.powertip.js"></script>
+  	<script src="src/js/jquery.js"> </script>
+  	<link rel="stylesheet" href="https://stevenbenner.github.io/jquery-powertip/styles/jquery.powertip.css">
+
     <link rel="stylesheet" href="src/CSS/home.css">
     <link rel="icon" href="src/pic/ToL_Icon.png">
 </head>
@@ -18,13 +22,13 @@
     	<!-- Content -->
     	<div class="modal-content">
     		<span class="close" onclick="SpanClose()">&times;</span>
-    		
+
     		<div id="Login" style="display: none;">
 		        <form id="LoginForm" action="MyAccount.html"method="get" name="LoginForm">
 		            <label>Username: </label>
-		            <input type="text" name="username" id="username" placeholder="Username" />
+		            <input type="text" name="username" id="username" placeholder="Username" title="Probelogin: admin"/>
 		            <label>Password: </label>
-		            <input type="password" name="password" id="password" placeholder="Password" />
+		            <input type="password" name="password" id="password" placeholder="Password" title="Problelogin: admin123"/>
 		            <input type="button" value="Login" id="submit" onclick="Einloggen()"/>
 		        </form>
 		        <p id="Falsch" style="display:none; float:left;">Passwort bzw. Username passen nicht überein:</p>
@@ -61,12 +65,14 @@
             		<li ><a href="http://de.talesoflomon.wikia.com/wiki/TalesofLomon_Wikia" target="_blank" >Wiki</a></li>
                     <li ><a id="SpreadSheet" href="https://docs.google.com/spreadsheets/d/1kqwdqHWEAbSDSdtm7tDFMSpGqPS5S5IBF_sBjsxOGo4/edit?usp=sharing"
                         target="_blank">  SpreadSheet </a></li>
-                    <li><a href="https://llath.github.io/TalesOfLomon/src/CharachterSheetTalesofLomon.pdf" 
+                    <li><a href="https://llath.github.io/TalesOfLomon/src/CharachterSheetTalesofLomon.pdf"
                         target = "_blank"> CharacterSheet </a></li>
                     <li><a href="http://game-icons.net/" target="_blank">Free use Icons</a></li>
-            	
-                
+
+
                 	<li id="Logout"><a href="#" onclick="Logout()">Logout</a></li>
+
+                  <li><a href="src/Pages/Erstellen.html" onclick="ErstellenAnzeigen()" style="display:block;" id="Erstellen_Probe" target="iframe_Erstellen" title="Probemäßig in der Navbar">Charakter erstellen</a></li>
                 </ul>
             </div>
         </div>
@@ -90,7 +96,7 @@
 
     				<li><a href="src/Pages/Erstellen.html" onclick="ErstellenAnzeigen()" style="display: none;" id="Erstellen" target="iframe_Erstellen">Charakter Erstellen<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span></a></li>
     			</ul>
-    		</div>	
+    		</div>
     	</div>
     </nav>
 
@@ -98,16 +104,16 @@
     <iframe frameborder="0" id="iframe_Erstellen" name="iframe_Erstellen" height="760" class="main"></iframe>
 
     <!-- <iframe src="src/Pages/Erstellen.html" class="main" frameborder="0" height="760"></iframe> -->
-    
+
    <!--  <canvas id="canvas" width="400" height="250"></canvas> -->
 
    <!-- Startseite -->
    <div id="Home">
-   		<p>Hier steht etwas das länger sein sollte und das PnP beschreiben sollte.</p>
+   		<!-- <p>Hier steht etwas das länger sein sollte und das PnP beschreiben sollte.</p>
    		<br>
-   		<p>Hier kommt noch mehr Text.</p>
+   		<p>Hier kommt noch mehr Text.</p> -->
    </div>
-   
+
 
 </body>
 
@@ -115,5 +121,5 @@
     <!-- <a href="https://github.com/LLath/TalesOfLomon" target="_blank"> GitHub </a>
     <br>
     <a href="https://talesoflomon.herokuapp.com/" target="_blank"> Heroku-Web </a> -->
-</footer>                         
+</footer>
 </html>

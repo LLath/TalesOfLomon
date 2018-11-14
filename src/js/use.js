@@ -11,7 +11,7 @@ function htmlbodyHeightUpdate(){
 		$('html').height(Math.max(height1,height3,height2));
 		$('body').height(Math.max(height1,height3,height2));
 	}
-		
+
 }
 $(document).ready(function () {
 	htmlbodyHeightUpdate();
@@ -45,7 +45,7 @@ function KlassenChange(){
     		mali.innerHTML = "Mali: Weniger Leben";
     		ruestung.innerHTML = "Rüstung: Leder";
     		break;
-    	case "Magier":    
+    	case "Magier":
     		b.innerHTML = "Geübt mit allerlei Magie";
     		boni.innerHTML = "Boni: Dies und das";
     		mali.innerHTML = "Mali: Weniger Leben";
@@ -69,7 +69,7 @@ function KlassenChange(){
 }
 
 let name = "";
-function LoadName(){	
+function LoadName(){
 	var x = document.getElementById("Name");
 	if(x.value == "Name")
 		x.value = "";
@@ -97,7 +97,7 @@ function RassenChange(){
     		mali.innerHTML = "Kann nicht schleichen.";
     		fk.innerHTML = "Fähigkeit: Kann auf lange Strecken sehr schnell Rennen.";
     		break;
-    	case "Dragonier":    
+    	case "Dragonier":
     		s.innerHTML = "Sprache: Dragonisch";
     		boni.innerHTML = "Boni: 2 Schaden auf Faustwaffen.";
     		mali.innerHTML = "Mali: Kampfmalus bei kalten Temperaturen.";
@@ -193,7 +193,7 @@ function Zauber(Zauber, show){
 		cpZ = cphelp +(i * kosten);
 
 	switch(magicVal){
-		case 0: 
+		case 0:
 			cpshow.innerHTML =0;
 			break;
 		case "halt":
@@ -233,7 +233,7 @@ function AttributeRechner(display, auswahl){
 	var startcp = document.getElementById("CharPunkt");
 	var attrcp = document.getElementById("AttrPunkt");
 	var displayID = document.getElementById(display).id;
-	
+
 	try{
 		var displayVal = document.getElementById(auswahl).value;
 	}
@@ -351,7 +351,7 @@ function myAccount(){
 function ErstellenAnzeigen(){
 	document.getElementById("iframe_Login").style.display = "none";
 	document.getElementById("Home").style.display = "none";
-	document.getElementById("iframe_Erstellen").style.display = "block";	
+	document.getElementById("iframe_Erstellen").style.display = "block";
 }
 
 function Logout(){
@@ -363,14 +363,14 @@ function Logout(){
 let valshow = false;
 function ShowChar(){
 	let show = document.getElementById("Show");
-	if(valshow == false){		
+	if(valshow == false){
 		show.style.display = "block";
 		valshow = true;
 	}else{
 		valshow = false;
 		show.style.display = "none";
 	}
-	
+
 }
 
 function ErstellenonClick(){
@@ -422,11 +422,11 @@ let clickvergleich = 1;
 
 let TalenteMenu = {
     erstellen: function(){
-        
+
         click++;
         clickvergleich++;
         let getTalente = document.querySelector(".Talente"+click);
-        getTalente.innerHTML = '<table>             <tr>                    <th>Stufe</th>                    <th>Talent</th>                    <th>CP</th>                    <th>Attribute</th>                </tr>                <tr>                    <td>                        <select name="Stufe'+click+'" id="Stufe'+click+'" onchange="Talente(\'Stufe'+click+'\', \'Talent'+click+'\', \'CPTalente'+click+'\', \'TalentAttribute'+click+'\'); AttributeRechner(\'CPTalente'+click+'\')">                            <option value="0" selected></option>                            <option value="1">1</option>                            <option value="2">2</option>                            <option value="3">3</option>                        </select>                    </td><td><select name="Talent'+click+'" id="Talent'+click+'"><option value="0"></option>                            <option value="1">Ackerbau</option>                            <option value="2">Alchemie</option>                            <option value="4"> Alte Sprachen</option>                        </select>                    </td>                    <td>                        <span id="CPTalente'+click+'" style="border-right: 1px #e5e5e5 solid;">-</span>                    </td>                    <td>                        <span id="TalentAttribute'+click+'">-</span>                    </td>                </tr>                </table>' + '<span class="Talente'+clickvergleich+'"></span>'; 
+        getTalente.innerHTML = '<table>             <tr>                    <th>Stufe</th>                    <th>Talent</th>                    <th>CP</th>                    <th>Attribute</th>                </tr>                <tr>                    <td>                        <select name="Stufe'+click+'" id="Stufe'+click+'" onchange="Talente(\'Stufe'+click+'\', \'Talent'+click+'\', \'CPTalente'+click+'\', \'TalentAttribute'+click+'\'); AttributeRechner(\'CPTalente'+click+'\')">                            <option value="0" selected></option>                            <option value="1">1</option>                            <option value="2">2</option>                            <option value="3">3</option>                        </select>                    </td><td><select name="Talent'+click+'" id="Talent'+click+'"><option value="0"></option>                            <option value="1">Ackerbau</option>                            <option value="2">Alchemie</option>                            <option value="4"> Alte Sprachen</option>                        </select>                    </td>                    <td>                        <span id="CPTalente'+click+'" style="border-right: 1px #e5e5e5 solid;">-</span>                    </td>                    <td>                        <span id="TalentAttribute'+click+'">-</span>                    </td>                </tr>                </table>' + '<span class="Talente'+clickvergleich+'"></span>';
     },
     loeschen: function(){
         let getTalente = document.querySelector(".Talente"+click);
